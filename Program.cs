@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace FinalProject
 {
     internal static class Program
-    {
+      {
         static public Form1 form1 = null;
         /// <summary>
         /// The main entry point for the application.

@@ -16,9 +16,9 @@ namespace FinalProject
     public partial class Form3 : Form
     {
 
-       
-    
-        
+        UserProductManager upm = new UserProductManager();
+
+
 
 
 
@@ -26,8 +26,6 @@ namespace FinalProject
         public Form3()
         {
             InitializeComponent();
-
-          
 
                 Dictionary<byte, string> dictCombo  = new Dictionary<byte, string>();
                 dictCombo.Add(1, "Admin");
@@ -46,32 +44,27 @@ namespace FinalProject
 
 
         private void button1_Click(object sender, EventArgs e)
+        
         {
-            if (Program.form1.form2.userList.ContainsKey(textBox3.Text))
+            if (Program.form1.userProductManager.userList.ContainsKey(textBox3.Text))
             {
               
                 MessageBox.Show("Bu istifadəçi adı sistemdə mövcuddur!");
             }
             else
             {
-                UserProduct user = new UserProduct();
-
-                int key = ((KeyValuePair<byte, string>)comboBox1.SelectedItem).Key;
-                user.ROLE_ID = key;
-                user.NAME = textBox2.Text;
-                user.USER_NAME = textBox3.Text;
-                user.PASSWORD = textBox4.Text;
-
+               
                 if (button1.Name == "insert")
                 {
-                    Program.form1.userProduct.get_add_update_delete(11,user,-1);
-                }else if (button1.Name == "update")
+                    Program.form1.userProductManager.get_add_update_delete(11);
+                }
+                
+                else if (button1.Name == "update")
+                
                 {
-                 string userNmeGrid=   (string)Program.form1.form2.dataGridView1.SelectedRows[0].Cells["USER_NAME"].Value;
-                    
-                  int userID = (int)Program.form1.form2.dataGridView1.SelectedRows[0].Cells["ID"].Value;
-
-                    Program.form1.userProduct.get_add_update_delete(12, user, userID);
+                 string userNmeGrid=(string)Program.form1.form2.dataGridView1.SelectedRows[0].Cells["USER_NAME"].Value;               
+                 
+                    Program.form1.userProductManager.get_add_update_delete(12);
                 }
                
                     Program.form1.form2.Form2_Load(sender, e);

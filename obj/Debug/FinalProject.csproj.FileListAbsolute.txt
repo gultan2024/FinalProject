@@ -8,10 +8,11 @@ C:\Users\asusp\source\repos\FinalProject\obj\Debug\FinalProject.Form1.resources
 C:\Users\asusp\source\repos\FinalProject\obj\Debug\FinalProject.Form2.resources
 C:\Users\asusp\source\repos\FinalProject\obj\Debug\FinalProject.Form3.resources
 C:\Users\asusp\source\repos\FinalProject\obj\Debug\FinalProject.Form4.resources
+C:\Users\asusp\source\repos\FinalProject\obj\Debug\FinalProject.Form5.resources
+C:\Users\asusp\source\repos\FinalProject\obj\Debug\FinalProject.Form6.resources
 C:\Users\asusp\source\repos\FinalProject\obj\Debug\FinalProject.Properties.Resources.resources
 C:\Users\asusp\source\repos\FinalProject\obj\Debug\FinalProject.csproj.GenerateResource.cache
 C:\Users\asusp\source\repos\FinalProject\obj\Debug\FinalProject.csproj.CoreCompileInputs.cache
 C:\Users\asusp\source\repos\FinalProject\obj\Debug\FinalPro.8C09D514.Up2Date
 C:\Users\asusp\source\repos\FinalProject\obj\Debug\FinalProject.exe
 C:\Users\asusp\source\repos\FinalProject\obj\Debug\FinalProject.pdb
-C:\Users\asusp\source\repos\FinalProject\obj\Debug\FinalProject.Form5.resources

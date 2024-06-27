@@ -14,8 +14,8 @@ namespace FinalProject
 {
     public partial class Form4 : Form
     {
-        Form5 form5 = null;
-        public  List<UserProduct> userProductList = new List<UserProduct>();
+       public Form5 form5 = null;
+
 
         public Form4()
         {
@@ -27,14 +27,10 @@ namespace FinalProject
          
 
             button4.Text = "Balansı dəyiş";
-            textBox1.ReadOnly = true;
+          //  textBox1.ReadOnly = true;
           
         }
 
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -48,27 +44,44 @@ namespace FinalProject
             {
                 form5 = new Form5();
             }
-          //  form5.button1.Name = "Səbətə əlavə et";
-            form5.button1.Text = "Səbətə əlavə et";
+            form5.button1.Name = "insert";
+            form5.button1.Text = "Sebete elave et";
+         
+            form5.ShowDialog();
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (form5 == null)
+            {
+                form5 = new Form5();
+            }
+            form5.button1.Name = "update";
+            form5.button1.Text = "Alisi sonlandir";
+
             form5.ShowDialog();
         }
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            Program.form1.userProduct.get_add_update_delete(30, null, -1);
-            if (userProductList.Count > 0)
+            Program.form1.userProductManager.get_add_update_delete(30);
+     
+            if (Program.form1.userProductManager.userProductList.Count > 0)
             {
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = userProductList;
-            
+               // dataGridView1.DataSource = null;
+                dataGridView1.DataSource = Program.form1.userProductManager.userProductList;
+
                 dataGridView1.Columns["ID"].Visible = false;
-                dataGridView1.Columns["ROLE_ID"].Visible = false;
-                dataGridView1.Columns["ROLE_NAME"].Visible = false;
+                dataGridView1.Columns["U_ID"].Visible = false;
+          //      dataGridView1.Columns["ROLE_ID"].Visible = false;
+           //     dataGridView1.Columns["ROLE_NAME"].Visible = false;
                 dataGridView1.Columns["P_ID"].Visible = false;
-                dataGridView1.Columns["UP_ID"].Visible = false;
-               
-                dataGridView1.Columns["UP_ACTIVE"].HeaderText = "Status";
-                dataGridView1.Columns["UP_ACTIVE_NAME"].HeaderText = "Status";
+                dataGridView1.Columns["ACTIVE"].Visible = false;
+              
+
+
+                dataGridView1.Columns["ACTIVE_NAME"].HeaderText = "Alısın statusu";
 
                 getUserBalance();
             }
@@ -87,30 +100,25 @@ namespace FinalProject
 
         private void getUserBalance() {
 
-            Program.form1.userProduct.get_update_userBalance(1);
-            textBox1.Text = Program.form1.userProduct.UP_TOTAL_PRICE.ToString();
-            textBox2.Text = Program.form1.userProduct.BALANCE.ToString();
+            Program.form1.userProductManager.get_update_userBalance(1);
+            textBox1.Text = Program.form1.userProductManager.loginUser.TOTAL_PRICE.ToString();
+            textBox2.Text = Program.form1.userProductManager.loginUser.BALANCE.ToString();
         }
+
+
         private void button4_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(textBox2.Text, out int balance)) {
-                Program.form1.userProduct.BALANCE = balance;
-                Program.form1.userProduct.get_update_userBalance(2);
+            if (int.TryParse(textBox2.Text, out int balance)) 
+            {
+                Program.form1.userProductManager.loginUser.BALANCE = balance;
+                Program.form1.userProductManager.get_update_userBalance(2);
                 getUserBalance();
                 MessageBox.Show("Balans dəyişdi!");
             }
            
         }
 
+
      
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

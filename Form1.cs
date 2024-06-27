@@ -15,7 +15,7 @@ namespace FinalProject
     {
         public Form2 form2  = null;
         public Form4 form4  = null;
-        public UserProduct userProduct=new UserProduct();
+        public UserProductManager userProductManager=new UserProductManager();
         public Form1()
         {
             InitializeComponent();
@@ -24,23 +24,23 @@ namespace FinalProject
         private void button1_Click(object sender, EventArgs e)
         {
 
+           userProductManager.getUserForLogin(textBox1.Text, textBox2.Text);
 
 
-            userProduct.getUserForLogin(textBox1.Text, textBox1.Text);
-
-
-            if (userProduct.USER_NAME == null) {
+            if (userProductManager.loginUser.USER_NAME == null) 
+            {
 
                 MessageBox.Show(" İstifadəci adı və ya Parol yalnışdır! ");
             }
             else
             {
-                if (userProduct.ROLE_ID == 1) 
+                if (userProductManager.loginUser.ROLE_ID == 1) 
                 {
                     if (form2 == null) { form2 = new Form2(); }
           
                     form2.ShowDialog();
-                }else
+                }
+                else
                 {
                     if (form4 == null) { form4 = new Form4(); }
 
@@ -53,8 +53,7 @@ namespace FinalProject
                 textBox2.Text = "";*/
             }
 
-
-
+       
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
